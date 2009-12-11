@@ -44,7 +44,13 @@ Gem::Specification.new do |s|
      "lib/documenter/ooo/odt.rb",
      "lib/documenter/pdf.rb",
      "lib/documenter/pdftk/pdftk.exe",
+     "test/17474316977tmp.odf",
+     "test/17474338776tmp.xml",
      "test/helper.rb",
+     "test/myout.csv",
+     "test/out.pdf",
+     "test/test1.pdf",
+     "test/test_data/custom_register.odt",
      "test/test_documenter.rb"
   ]
   s.homepage = %q{http://github.com/goremika/documenter}
