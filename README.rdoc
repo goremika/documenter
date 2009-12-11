@@ -1,17 +1,56 @@
 = documenter
 
-Description goes here.
+Documenter is small collection of scripts to work with different format of documents
+It includes:
+* Odf and Odt classes to fill forms, tables and e.t.c
+* File format convertor based on JodConvertor. To work with it, you need to have open office istalled localy
+* Pdf worker based on pdftk. You should install it too
+* Csv class to work with csv more easely
 
-== Note on Patches/Pull Requests
+== Installation
  
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+% gem install documenter
 
-== Copyright
+== Example
 
-Copyright (c) 2009 A N. See LICENSE for details.
+=== Csv
+
+Load data from file into two demetions array
+data = File.open('test.csv').csv(:cell_split => ';')
+
+Export data to csv file
+data.to_csv(:file => 'myout.csv', :header => ['a','a+100'], :cell_split => ';')
+
+
+=== Convertor
+
+Convertor.convert 'test.xls', 'test.pdf'
+
+=== Pdf
+
+Join files together
+
+Pdf.cat ['a.pdf','b.pdf'], 'output.pdf'
+
+Split pdf to pages
+second parameter - string that would be used as a pattern to save each page
+
+Pdf.burst 'hello.pdf', 'doc/page_%.6d.pdf'
+
+
+#opening existing document
+doc = OdtFile.new 'custom_register.odt'
+#set value of form field
+doc.text.fill_form('number' => 'test')
+#search for table and yield first row copy for each data row
+doc.text.edit_table(:name => 'posts', :data =>posts) do |row, content|
+    #replace form fields
+    row.replace_form(content)
+    #we shoul return row back
+    row
+end
+doc.save  'out.odt'
+#you should use close to delete temporary files
+doc.close
+
+

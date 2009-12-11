@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{documenter}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["A N"]
-  s.date = %q{2009-11-30}
+  s.date = %q{2009-12-11}
   s.description = %q{This gem uses OpenOffice and pdftk to convert, split, join, fill and copy files. It may be usefull if you have many documents to work with. It is not realy fast solution and it depend on istalled software}
   s.email = %q{goremika@gmail.com}
   s.extra_rdoc_files = [
