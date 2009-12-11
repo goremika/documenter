@@ -44,6 +44,13 @@ class OdtText
     @xml.to_html
   end
   
+  def fill_table params
+    edit_table(params) do |row, content|
+      row.replace_form content
+      row
+    end
+  end
+  
 		
 	def edit_table params
 		@name = params[:name]
@@ -69,11 +76,7 @@ class OdtText
     #puts @xml
   end
 	
-	def fill_table params
-		edit_table_rows(params) do |row, row_date|
-			row.replace_form(row_data)
-		end
-	end
+
 	
 end
 
@@ -81,7 +84,7 @@ class OdtFile < OdfFile
   attr_accessor :text
   
   def initialize filename
-    super
+    super filename
     load
   end
   
@@ -97,10 +100,6 @@ class OdtFile < OdfFile
   
   def save filename
     save_changes
-    name, extention = filename.split('.')
-    extention = 'odt' if !extention 
-    raise "Wrong extention #{extention} for odt file" if extention != 'odt'
-    filename = "#{name}.#{extention}"
     super filename
   end
   

@@ -8,8 +8,9 @@ class OdfFile
   
 	def initialize filename
 		#working with copy 
+    ext = filename.split('.')[-1]
 		rn = random_name
-		@file = random_name+'tmp.odf'
+		@file = random_name+'tmp.'+ext
 		@content = random_name+'tmp.xml'
 		
 		File.copy filename, @file
@@ -37,6 +38,11 @@ class OdfFile
     puts "just before saving"
 		zip.replace('content.xml',@content)
 		zip.close
-    File.copy @file, filename
+    if filename.split('.')[-1]=='odt'
+      File.copy @file, filename
+    else
+      Converter.convert @file, filename
+    end
+    
 	end
 end

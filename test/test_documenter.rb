@@ -9,5 +9,13 @@ class TestDocumenter < Test::Unit::TestCase
     
   end
   
+  should "fill form and save as pdf" do 
+    doc = OdtFile.new 'test_data/custom_register.odt'
+    data = [{'posts' => '123'}, {'posts' => 'abcd'}]
+    doc.text.fill_table(:name => "posts", :data => data)
+    doc.save 'out.pdf'
+    doc.close
+  end
+  
     
 end
