@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{documenter}
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["A N"]
-  s.date = %q{2009-12-11}
+  s.date = %q{2009-12-14}
   s.description = %q{This gem uses OpenOffice and pdftk to convert, split, join, fill and copy files. It may be usefull if you have many documents to work with. It is not realy fast solution and it depend on istalled software}
   s.email = %q{goremika@gmail.com}
   s.extra_rdoc_files = [
@@ -24,6 +24,9 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "documenter.gemspec",
+     "lib/1b608964155d6d7d6db93752719a499fddde8d3ae4a9412ab42d42793cfb6f06",
+     "lib/Archive.rb",
+     "lib/New Text Document.txt",
      "lib/documenter.rb",
      "lib/documenter/csv.rb",
      "lib/documenter/ooo.rb",
@@ -44,12 +47,10 @@ Gem::Specification.new do |s|
      "lib/documenter/ooo/odt.rb",
      "lib/documenter/pdf.rb",
      "lib/documenter/pdftk/pdftk.exe",
-     "test/17474316977tmp.odf",
-     "test/17474338776tmp.xml",
+     "lib/generated.txt",
+     "lib/on.txt",
+     "lib/text.txt",
      "test/helper.rb",
-     "test/myout.csv",
-     "test/out.pdf",
-     "test/test1.pdf",
      "test/test_data/custom_register.odt",
      "test/test_documenter.rb"
   ]
